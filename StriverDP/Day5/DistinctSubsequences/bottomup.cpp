@@ -6,7 +6,7 @@ int numDistinct(string a, string b) {
     int m = b.size();
 
     vector<vector<double>> dp(n+1, vector<double>(m+1, 0));
-
+    
     for(int i = 0;i <= n; i++) dp[i][m] = 1;
 
     for(int i = n-1; i >= 0; i--) {

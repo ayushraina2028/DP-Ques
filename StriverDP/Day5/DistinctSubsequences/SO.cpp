@@ -11,11 +11,15 @@ int numDistinct(string a, string b) {
 
     for(int i = n-1; i >= 0; i--) {
 
+        vector<double> curr(m+1,0);
+        curr[m] = 1;
+
         for(int j = m-1; j >= 0; j--) {
-            if(a[i]==b[j]) dp[j] = dp[j+1] + dp[j];
-            else dp[j] = dp[j];
+            if(a[i]==b[j]) curr[j] = dp[j+1] + dp[j];
+            else curr[j] = dp[j];
         }
 
+        dp = curr;
     }
 
     return (int)dp[0];
